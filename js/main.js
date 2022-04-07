@@ -32,3 +32,38 @@ for (let i = 0; i < pacientes.length; i++) {
     imc.textContent = resultadoImc.toFixed(1)
     }
 }
+
+let botaoAdicionar = document.querySelector("#adicionar-paciente");
+
+botaoAdicionar.addEventListener("click", function (event){
+    event.preventDefault()
+    
+    let formulario = document.querySelector("#form-adiciona");
+
+    let nome = formulario.nome.value;
+    let peso = formulario.peso.value;
+    let altura = formulario.altura.value;
+    let gordura = formulario.gordura.value;
+
+    let pacienteTr = document.createElement("Tr");
+
+    let nomeTd = document.createElement("Td");
+    let pesoTd = document.createElement("Td");
+    let alturaTd = document.createElement("Td");
+    let gorduraTd = document.createElement("Td");
+
+    nomeTd.textContent = nome;
+    pesoTd.textContent = peso;
+    alturaTd.textContent = altura;
+    gorduraTd.textContent = gordura;
+
+    pacienteTr.appendChild(nomeTd);
+    pacienteTr.appendChild(pesoTd);
+    pacienteTr.appendChild(alturaTd);
+    pacienteTr.appendChild(gorduraTd);
+
+    let tabela = document.querySelector("#tabela-pacientes");
+
+    tabela.appendChild(pacienteTr);
+
+})
